@@ -85,6 +85,18 @@ type GetFixedVirtualAccountResponse struct {
 	Id            string `json:"id"`
 }
 
+type FixedVirtualAccountCallbackRequest struct {
+	PaymentId                string  `json:"payment_id"`
+	CallbackVirtualAccountId string  `json:"callback_virtual_account_id"`
+	OwnerId                  string  `json:"owner_id"`
+	ExternalId               string  `json:"external_id"`
+	AccountNumber            string  `json:"account_number"`
+	BankCode                 string  `json:"bank_code"`
+	Amount                   float64 `json:"amount"`
+	MerchantCode             string  `json:"merchant_code"`
+	Id                       string  `json:"id"`
+}
+
 func (c *VirtualAccount) GetAvailableVirtualAccount() ([]AvailableVirtualAccountResponse, error) {
 	res := new([]AvailableVirtualAccountResponse)
 
