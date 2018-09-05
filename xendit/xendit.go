@@ -34,6 +34,14 @@ type Client struct {
 	PublicKey string
 	SecretKey string
 
+	Balance        *Balance
+	CreditCard     *CreditCard
+	Disbursement   *Disbursement
+	Forex          *Forex
+	Invoice        *Invoice
+	NameValidator  *NameValidator
+	NPWPValidator  *NPWPValidator
+	RetailOutlet   *RetailOutlet
 	VirtualAccount *VirtualAccount
 
 	httpClient *http.Client
@@ -58,6 +66,14 @@ func NewClient() *Client {
 		UserAgent: userAgent,
 	}
 
+	client.Balance = &Balance{client}
+	client.CreditCard = &CreditCard{client}
+	client.Disbursement = &Disbursement{client}
+	client.Forex = &Forex{client}
+	client.Invoice = &Invoice{client}
+	client.NameValidator = &NameValidator{client}
+	client.NPWPValidator = &NPWPValidator{client}
+	client.RetailOutlet = &RetailOutlet{client}
 	client.VirtualAccount = &VirtualAccount{client}
 
 	return client
