@@ -11,6 +11,21 @@ Documentation
 go get github.com/hipcar/go-xendit-client
 ```
 
+## Init
+```go
+package main
+
+import (
+	"github.com/hipcar/go-xendit-client"
+)
+
+func main() {
+  xenditClient := xendit.NewClient()
+  xenditClient.EnableLog = true // logging is false by default
+  xenditClient.SecretKey = "YOUR_XENDIT_SECRET_KEY"
+}
+```
+
 ## Balance
 
 ## Credit Card
