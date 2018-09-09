@@ -28,6 +28,18 @@ func main() {
 
 ## Balance
 
+### Account Type
+|Supported Account Type| Value |
+|--|--|
+|xendit.AccountTypeCash| CASH |
+|xendit.AccountTypeHolding| HOLDING |
+|xendit.AccountTypeTax| TAX |
+
+### Get Balance
+```go
+res, err := client.Balance.GetBalance(xendit.AccountTypeCash)
+```
+
 ## Credit Card
 
 ## Virtual Account
