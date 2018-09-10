@@ -14,7 +14,7 @@ type BalanceResponse struct {
 	Balance float64 `json:"balance"`
 }
 
-func (c *VirtualAccount) GetBalance(accountType string) (BalanceResponse, error) {
+func (c *Balance) GetBalance(accountType string) (BalanceResponse, error) {
 	res := new(BalanceResponse)
 
 	switch accountType {
