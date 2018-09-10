@@ -48,7 +48,8 @@ type Client struct {
 }
 
 type errorResponse struct {
-	Error string `json:"error,omitempty"`
+	ErrorCode string `json:"error_code,omitempty"`
+	Message   string `json:"message,omitempty"`
 }
 
 type DoerFunc func(req *http.Request) (resp *http.Response, err error)
@@ -127,11 +128,11 @@ func (c *Client) Request(method string, path string, data interface{}, v interfa
 
 		err = json.NewDecoder(resp.Body).Decode(rb)
 
-		if rb.Error == "" {
+		if rb.ErrorCode == "" {
 			return errors.New("general error")
 		}
 
-		return errors.New(rb.Error)
+		return errors.New(rb.ErrorCode)
 	}
 
 	// Decode to interface
