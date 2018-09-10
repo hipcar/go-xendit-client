@@ -1,6 +1,9 @@
 package xendit
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type CreditCard struct {
 	client *Client
@@ -36,23 +39,23 @@ type ChargeRequest struct {
 }
 
 type ChargeResponse struct {
-	Created               string  `json:"created"`
-	Status                string  `json:"status"`
-	BusinessId            string  `json:"business_id"`
-	AuthorizedAmount      float64 `json:"authorized_amount"`
-	ExternalId            string  `json:"external_id"`
-	MerchantId            string  `json:"merchant_id"`
-	MerchantReferenceCode string  `json:"merchant_reference_code"`
-	CardType              string  `json:"card_type"`
-	MaskedCardNumber      string  `json:"masked_card_number"`
-	ChargeType            string  `json:"charge_type"`
-	CardBrand             string  `json:"card_brand"`
-	BankReconciliationId  string  `json:"bank_reconciliation_id"`
-	ECI                   string  `json:"eci"`
-	CaptureAmount         float64 `json:"capture_amount"`
-	Id                    string  `json:"id"`
-	Descriptor            string  `json:"descriptor"`
-	FailureReason         string  `json:"failure_reason"`
+	Created               time.Time `json:"created"`
+	Status                string    `json:"status"`
+	BusinessId            string    `json:"business_id"`
+	AuthorizedAmount      float64   `json:"authorized_amount"`
+	ExternalId            string    `json:"external_id"`
+	MerchantId            string    `json:"merchant_id"`
+	MerchantReferenceCode string    `json:"merchant_reference_code"`
+	CardType              string    `json:"card_type"`
+	MaskedCardNumber      string    `json:"masked_card_number"`
+	ChargeType            string    `json:"charge_type"`
+	CardBrand             string    `json:"card_brand"`
+	BankReconciliationId  string    `json:"bank_reconciliation_id"`
+	ECI                   string    `json:"eci"`
+	CaptureAmount         float64   `json:"capture_amount"`
+	Id                    string    `json:"id"`
+	Descriptor            string    `json:"descriptor"`
+	FailureReason         string    `json:"failure_reason"`
 }
 
 type CaptureChargeRequest struct {
@@ -60,21 +63,21 @@ type CaptureChargeRequest struct {
 }
 
 type CaptureChargeResponse struct {
-	Created               string  `json:"created"`
-	Status                string  `json:"status"`
-	BusinessId            string  `json:"business_id"`
-	AuthorizedAmount      float64 `json:"authorized_amount"`
-	ExternalId            string  `json:"external_id"`
-	MerchantId            string  `json:"merchant_id"`
-	MerchantReferenceCode string  `json:"merchant_reference_code"`
-	CardType              string  `json:"card_type"`
-	MaskedCardNumber      string  `json:"masked_card_number"`
-	ChargeType            string  `json:"charge_type"`
-	CardBrand             string  `json:"card_brand"`
-	BankReconciliationId  string  `json:"bank_reconciliation_id"`
-	CaptureAmount         float64 `json:"capture_amount"`
-	Id                    string  `json:"id"`
-	Descriptor            string  `json:"descriptor"`
+	Created               time.Time `json:"created"`
+	Status                string    `json:"status"`
+	BusinessId            string    `json:"business_id"`
+	AuthorizedAmount      float64   `json:"authorized_amount"`
+	ExternalId            string    `json:"external_id"`
+	MerchantId            string    `json:"merchant_id"`
+	MerchantReferenceCode string    `json:"merchant_reference_code"`
+	CardType              string    `json:"card_type"`
+	MaskedCardNumber      string    `json:"masked_card_number"`
+	ChargeType            string    `json:"charge_type"`
+	CardBrand             string    `json:"card_brand"`
+	BankReconciliationId  string    `json:"bank_reconciliation_id"`
+	CaptureAmount         float64   `json:"capture_amount"`
+	Id                    string    `json:"id"`
+	Descriptor            string    `json:"descriptor"`
 }
 
 // TODO

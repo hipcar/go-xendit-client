@@ -1,6 +1,9 @@
 package xendit
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type VirtualAccount struct {
 	client *Client
@@ -12,15 +15,15 @@ type AvailableVirtualAccountResponse struct {
 }
 
 type CreateFixedVirtualAccountRequest struct {
-	ExternalId           string  `json:"external_id"`
-	BankCode             string  `json:"bank_code"`
-	Name                 string  `json:"name"`
-	VirtualAccountNumber string  `json:"virtual_account_number"`
-	SuggestedAmount      float64 `json:"suggested_amount"`
-	IsClosed             bool    `json:"is_closed"`
-	ExpectedAmount       float64 `json:"expected_amount"`
-	ExpirationDate       string  `json:"expiration_date"`
-	IsSingleUse          bool    `json:"is_single_use"`
+	ExternalId           string    `json:"external_id"`
+	BankCode             string    `json:"bank_code"`
+	Name                 string    `json:"name"`
+	VirtualAccountNumber string    `json:"virtual_account_number"`
+	SuggestedAmount      float64   `json:"suggested_amount"`
+	IsClosed             bool      `json:"is_closed"`
+	ExpectedAmount       float64   `json:"expected_amount"`
+	ExpirationDate       time.Time `json:"expiration_date"`
+	IsSingleUse          bool      `json:"is_single_use"`
 }
 
 type CreateFixedVirtualAccountResponse struct {
@@ -39,10 +42,10 @@ type CreateFixedVirtualAccountResponse struct {
 }
 
 type UpdateFixedVirtualAccountRequest struct {
-	SuggestedAmount float64 `json:"suggested_amount"`
-	ExpectedAmount  float64 `json:"expected_amount"`
-	ExpirationDate  string  `json:"expiration_date"`
-	IsSingleUse     bool    `json:"is_single_use"`
+	SuggestedAmount float64   `json:"suggested_amount"`
+	ExpectedAmount  float64   `json:"expected_amount"`
+	ExpirationDate  time.Time `json:"expiration_date"`
+	IsSingleUse     bool      `json:"is_single_use"`
 }
 
 type UpdateFixedVirtualAccountResponse struct {
@@ -61,15 +64,15 @@ type UpdateFixedVirtualAccountResponse struct {
 }
 
 type FixedVirtualAccountPaymentResponse struct {
-	Id                       string  `json:"id"`
-	PaymentId                string  `json:"payment_id"`
-	CallbackVirtualAccountId string  `json:"callback_virtual_account_id"`
-	ExternalId               string  `json:"external_id"`
-	MerchantCode             string  `json:"merchant_code"`
-	AccountNumber            string  `json:"account_number"`
-	BankCode                 string  `json:"bank_code"`
-	Amount                   float64 `json:"amount"`
-	TransactionTimestamp     string  `json:"transaction_timestamp"`
+	Id                       string    `json:"id"`
+	PaymentId                string    `json:"payment_id"`
+	CallbackVirtualAccountId string    `json:"callback_virtual_account_id"`
+	ExternalId               string    `json:"external_id"`
+	MerchantCode             string    `json:"merchant_code"`
+	AccountNumber            string    `json:"account_number"`
+	BankCode                 string    `json:"bank_code"`
+	Amount                   float64   `json:"amount"`
+	TransactionTimestamp     time.Time `json:"transaction_timestamp"`
 }
 
 type GetFixedVirtualAccountResponse struct {

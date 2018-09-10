@@ -1,6 +1,9 @@
 package xendit
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 type Invoice struct {
 	client *Client
@@ -26,11 +29,11 @@ type InvoiceResponse struct {
 	PayerEmail                string                                 `json:"payer_email"`
 	Description               string                                 `json:"description"`
 	InvoiceUrl                string                                 `json:"invoice_url"`
-	ExpiryDate                string                                 `json:"expiry_date"`
+	ExpiryDate                time.Time                              `json:"expiry_date"`
 	ShouldExcludeCreditCard   bool                                   `json:"should_exclude_credit_card"`
 	ShouldSendEmail           bool                                   `json:"should_send_email"`
-	Created                   string                                 `json:"created"`
-	Updated                   string                                 `json:"updated"`
+	Created                   time.Time                              `json:"created"`
+	Updated                   time.Time                              `json:"updated"`
 	AvailableBanks            []InvoiceAvailableBankResponse         `json:"available_banks"`
 	AvailableRetailOutlets    []InvoiceAvailableRetailOutletResponse `json:"available_retail_outlets"`
 }
@@ -52,23 +55,23 @@ type InvoiceAvailableRetailOutletResponse struct {
 }
 
 type InvoiceCallbackRequest struct {
-	Id                     string  `json:"id"`
-	UserId                 string  `json:"user_id"`
-	ExternalId             string  `json:"external_id"`
-	IsHigh                 bool    `json:"is_high"`
-	MerchantName           string  `json:"merchant_name"`
-	Amount                 float64 `json:"amount"`
-	FeesPaidAmount         float64 `json:"fees_paid_amount"`
-	Status                 string  `json:"status"`
-	PayerEmail             string  `json:"payer_email"`
-	Description            string  `json:"description"`
-	AdjustedReceivedAmount float64 `json:"adjusted_received_amount"`
-	PaymentMethod          string  `json:"payment_method"`
-	BankCode               string  `json:"bank_code"`
-	RetailOutletName       string  `json:"retail_outlet_name"`
-	PaidAmount             string  `json:"paid_amount"`
-	Updated                string  `json:"updated"`
-	Created                string  `json:"created"`
+	Id                     string    `json:"id"`
+	UserId                 string    `json:"user_id"`
+	ExternalId             string    `json:"external_id"`
+	IsHigh                 bool      `json:"is_high"`
+	MerchantName           string    `json:"merchant_name"`
+	Amount                 float64   `json:"amount"`
+	FeesPaidAmount         float64   `json:"fees_paid_amount"`
+	Status                 string    `json:"status"`
+	PayerEmail             string    `json:"payer_email"`
+	Description            string    `json:"description"`
+	AdjustedReceivedAmount float64   `json:"adjusted_received_amount"`
+	PaymentMethod          string    `json:"payment_method"`
+	BankCode               string    `json:"bank_code"`
+	RetailOutletName       string    `json:"retail_outlet_name"`
+	PaidAmount             string    `json:"paid_amount"`
+	Updated                time.Time `json:"updated"`
+	Created                time.Time `json:"created"`
 }
 
 func (c *Invoice) CreateInvoice(body CreateInvoiceRequest) (InvoiceResponse, error) {
