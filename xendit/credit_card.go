@@ -10,13 +10,13 @@ type CreditCard struct {
 }
 
 type TokenizationRequest struct {
-	Amount             string `json:"amount"`
-	CardNumber         string `json:"card_number"`
-	CardExpMonth       string `json:"card_exp_month"`
-	CardExpYear        string `json:"card_exp_year"`
-	CardCvn            string `json:"card_cvn"`
-	IsMultipleUse      bool   `json:"is_multiple_use"`
-	ShouldAuthenticate bool   `json:"should_authenticate"`
+	Amount             string `json:"amount,omitempty"`
+	CardNumber         string `json:"card_number,omitempty"`
+	CardExpMonth       string `json:"card_exp_month,omitempty"`
+	CardExpYear        string `json:"card_exp_year,omitempty"`
+	CardCvn            string `json:"card_cvn,omitempty"`
+	IsMultipleUse      bool   `json:"is_multiple_use,omitempty"`
+	ShouldAuthenticate bool   `json:"should_authenticate,omitempty"`
 }
 
 type TokenizationResponse struct {
@@ -29,13 +29,13 @@ type TokenizationResponse struct {
 }
 
 type ChargeRequest struct {
-	TokenId          string  `json:"token_id"`
-	ExternalId       string  `json:"external_id"`
-	Amount           float64 `json:"amount"`
-	AuthenticationId string  `json:"authentication_id"`
-	CardCvn          string  `json:"card_cvn"`
-	Capture          bool    `json:"capture"`
-	Descriptor       string  `json:"descriptor"`
+	TokenId          string  `json:"token_id,omitempty"`
+	ExternalId       string  `json:"external_id,omitempty"`
+	Amount           float64 `json:"amount,omitempty"`
+	AuthenticationId string  `json:"authentication_id,omitempty"`
+	CardCvn          string  `json:"card_cvn,omitempty"`
+	Capture          bool    `json:"capture,omitempty"`
+	Descriptor       string  `json:"descriptor,omitempty"`
 }
 
 type ChargeResponse struct {
@@ -59,7 +59,7 @@ type ChargeResponse struct {
 }
 
 type CaptureChargeRequest struct {
-	Amount string `json:"amount"`
+	Amount string `json:"amount,omitempty"`
 }
 
 type CaptureChargeResponse struct {

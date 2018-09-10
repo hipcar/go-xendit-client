@@ -10,13 +10,13 @@ type RetailOutlet struct {
 }
 
 type CreateFixedPaymentCodeRequest struct {
-	ExternalId       string  `json:"external_id"`
-	RetailOutletName string  `json:"retail_outlet_name"`
-	Name             string  `json:"name"`
-	ExpectedAmount   float64 `json:"expected_amount"`
-	PaymentCode      string  `json:"payment_code"`
-	ExpirationDate   string  `json:"expiration_date"`
-	IsSingleUse      bool    `json:"is_single_use"`
+	ExternalId       string  `json:"external_id,omitempty"`
+	RetailOutletName string  `json:"retail_outlet_name,omitempty"`
+	Name             string  `json:"name,omitempty"`
+	ExpectedAmount   float64 `json:"expected_amount,omitempty"`
+	PaymentCode      string  `json:"payment_code,omitempty"`
+	ExpirationDate   string  `json:"expiration_date,omitempty"`
+	IsSingleUse      bool    `json:"is_single_use,omitempty"`
 }
 
 type CreateFixedPaymentCodeResponse struct {
@@ -33,9 +33,9 @@ type CreateFixedPaymentCodeResponse struct {
 }
 
 type UpdateFixedPaymentCodeRequest struct {
-	Name           string    `json:"name"`
-	ExpectedAmount float64   `json:"expected_amount"`
-	ExpirationDate time.Time `json:"expiration_date"`
+	Name           string    `json:"name,omitempty"`
+	ExpectedAmount float64   `json:"expected_amount,omitempty"`
+	ExpirationDate time.Time `json:"expiration_date,omitempty"`
 }
 
 type UpdateFixedPaymentCodeResponse struct {
@@ -65,17 +65,17 @@ type GetFixedPaymentCodeResponse struct {
 }
 
 type FixedPaymentCodeCallbackRequest struct {
-	FixedPaymentCodePaymentId string    `json:"fixed_payment_code_payment_id"`
-	OwnerId                   string    `json:"owner_id"`
-	FixedPaymentCodeId        string    `json:"fixed_payment_code_id"`
-	PaymentId                 string    `json:"payment_id"`
-	ExternalId                string    `json:"external_id"`
-	PaymentCode               string    `json:"payment_code"`
-	Prefix                    string    `json:"prefix"`
-	RetailOutletName          string    `json:"retail_outlet_name"`
-	Amount                    float64   `json:"amount"`
-	Name                      string    `json:"name"`
-	TransactionTimestamp      time.Time `json:"transaction_timestamp"`
+	FixedPaymentCodePaymentId string    `json:"fixed_payment_code_payment_id,omitempty"`
+	OwnerId                   string    `json:"owner_id,omitempty"`
+	FixedPaymentCodeId        string    `json:"fixed_payment_code_id,omitempty"`
+	PaymentId                 string    `json:"payment_id,omitempty"`
+	ExternalId                string    `json:"external_id,omitempty"`
+	PaymentCode               string    `json:"payment_code,omitempty"`
+	Prefix                    string    `json:"prefix,omitempty"`
+	RetailOutletName          string    `json:"retail_outlet_name,omitempty"`
+	Amount                    float64   `json:"amount,omitempty"`
+	Name                      string    `json:"name,omitempty"`
+	TransactionTimestamp      time.Time `json:"transaction_timestamp,omitempty"`
 }
 
 func (c *RetailOutlet) CreateFixedPaymentCode(body CreateFixedPaymentCodeRequest) (CreateFixedPaymentCodeResponse, error) {

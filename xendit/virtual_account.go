@@ -15,15 +15,15 @@ type AvailableVirtualAccountResponse struct {
 }
 
 type CreateFixedVirtualAccountRequest struct {
-	ExternalId           string    `json:"external_id"`
-	BankCode             string    `json:"bank_code"`
-	Name                 string    `json:"name"`
-	VirtualAccountNumber string    `json:"virtual_account_number"`
-	SuggestedAmount      float64   `json:"suggested_amount"`
-	IsClosed             bool      `json:"is_closed"`
-	ExpectedAmount       float64   `json:"expected_amount"`
-	ExpirationDate       time.Time `json:"expiration_date"`
-	IsSingleUse          bool      `json:"is_single_use"`
+	ExternalId           string    `json:"external_id,omitempty"`
+	BankCode             string    `json:"bank_code,omitempty"`
+	Name                 string    `json:"name,omitempty"`
+	VirtualAccountNumber string    `json:"virtual_account_number,omitempty"`
+	SuggestedAmount      float64   `json:"suggested_amount,omitempty"`
+	IsClosed             bool      `json:"is_closed,omitempty"`
+	ExpectedAmount       float64   `json:"expected_amount,omitempty"`
+	ExpirationDate       time.Time `json:"expiration_date,omitempty"`
+	IsSingleUse          bool      `json:"is_single_use,omitempty"`
 }
 
 type CreateFixedVirtualAccountResponse struct {
@@ -43,10 +43,10 @@ type CreateFixedVirtualAccountResponse struct {
 }
 
 type UpdateFixedVirtualAccountRequest struct {
-	SuggestedAmount float64   `json:"suggested_amount"`
-	ExpectedAmount  float64   `json:"expected_amount"`
-	ExpirationDate  time.Time `json:"expiration_date"`
-	IsSingleUse     bool      `json:"is_single_use"`
+	SuggestedAmount float64   `json:"suggested_amount,omitempty"`
+	ExpectedAmount  float64   `json:"expected_amount,omitempty"`
+	ExpirationDate  time.Time `json:"expiration_date,omitempty"`
+	IsSingleUse     bool      `json:"is_single_use,omitempty"`
 }
 
 type UpdateFixedVirtualAccountResponse struct {
@@ -90,15 +90,15 @@ type GetFixedVirtualAccountResponse struct {
 }
 
 type FixedVirtualAccountCallbackRequest struct {
-	PaymentId                string  `json:"payment_id"`
-	CallbackVirtualAccountId string  `json:"callback_virtual_account_id"`
-	OwnerId                  string  `json:"owner_id"`
-	ExternalId               string  `json:"external_id"`
-	AccountNumber            string  `json:"account_number"`
-	BankCode                 string  `json:"bank_code"`
-	Amount                   float64 `json:"amount"`
-	MerchantCode             string  `json:"merchant_code"`
-	Id                       string  `json:"id"`
+	PaymentId                string  `json:"payment_id,omitempty"`
+	CallbackVirtualAccountId string  `json:"callback_virtual_account_id,omitempty"`
+	OwnerId                  string  `json:"owner_id,omitempty"`
+	ExternalId               string  `json:"external_id,omitempty"`
+	AccountNumber            string  `json:"account_number,omitempty"`
+	BankCode                 string  `json:"bank_code,omitempty"`
+	Amount                   float64 `json:"amount,omitempty"`
+	MerchantCode             string  `json:"merchant_code,omitempty"`
+	Id                       string  `json:"id,omitempty"`
 }
 
 func (c *VirtualAccount) GetAvailableVirtualAccount() ([]AvailableVirtualAccountResponse, error) {

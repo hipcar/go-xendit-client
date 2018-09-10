@@ -10,12 +10,12 @@ type Invoice struct {
 }
 
 type CreateInvoiceRequest struct {
-	ExternalId               string  `json:"external_id"`
-	PayerEmail               string  `json:"payer_email"`
-	Description              string  `json:"description"`
-	Amount                   float64 `json:"amount"`
-	ShouldSendEmail          bool    `json:"should_send_email"`
-	CallbackVirtualAccountId string  `json:"callback_virtual_account_id"`
+	ExternalId               string  `json:"external_id,omitempty"`
+	PayerEmail               string  `json:"payer_email,omitempty"`
+	Description              string  `json:"description,omitempty"`
+	Amount                   float64 `json:"amount,omitempty"`
+	ShouldSendEmail          bool    `json:"should_send_email,omitempty"`
+	CallbackVirtualAccountId string  `json:"callback_virtual_account_id,omitempty"`
 }
 
 type InvoiceResponse struct {
@@ -55,23 +55,23 @@ type InvoiceAvailableRetailOutletResponse struct {
 }
 
 type InvoiceCallbackRequest struct {
-	Id                     string    `json:"id"`
-	UserId                 string    `json:"user_id"`
-	ExternalId             string    `json:"external_id"`
-	IsHigh                 bool      `json:"is_high"`
-	MerchantName           string    `json:"merchant_name"`
-	Amount                 float64   `json:"amount"`
-	FeesPaidAmount         float64   `json:"fees_paid_amount"`
-	Status                 string    `json:"status"`
-	PayerEmail             string    `json:"payer_email"`
-	Description            string    `json:"description"`
-	AdjustedReceivedAmount float64   `json:"adjusted_received_amount"`
-	PaymentMethod          string    `json:"payment_method"`
-	BankCode               string    `json:"bank_code"`
-	RetailOutletName       string    `json:"retail_outlet_name"`
-	PaidAmount             string    `json:"paid_amount"`
-	Updated                time.Time `json:"updated"`
-	Created                time.Time `json:"created"`
+	Id                     string    `json:"id,omitempty"`
+	UserId                 string    `json:"user_id,omitempty"`
+	ExternalId             string    `json:"external_id,omitempty"`
+	IsHigh                 bool      `json:"is_high,omitempty"`
+	MerchantName           string    `json:"merchant_name,omitempty"`
+	Amount                 float64   `json:"amount,omitempty"`
+	FeesPaidAmount         float64   `json:"fees_paid_amount,omitempty"`
+	Status                 string    `json:"status,omitempty"`
+	PayerEmail             string    `json:"payer_email,omitempty"`
+	Description            string    `json:"description,omitempty"`
+	AdjustedReceivedAmount float64   `json:"adjusted_received_amount,omitempty"`
+	PaymentMethod          string    `json:"payment_method,omitempty"`
+	BankCode               string    `json:"bank_code,omitempty"`
+	RetailOutletName       string    `json:"retail_outlet_name,omitempty"`
+	PaidAmount             string    `json:"paid_amount,omitempty"`
+	Updated                time.Time `json:"updated,omitempty"`
+	Created                time.Time `json:"created,omitempty"`
 }
 
 func (c *Invoice) CreateInvoice(body CreateInvoiceRequest) (InvoiceResponse, error) {

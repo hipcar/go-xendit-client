@@ -7,7 +7,7 @@ type NPWPValidator struct {
 }
 
 type NPWPValidatorRequest struct {
-	AccountNumber string `json:"account_number"`
+	AccountNumber string `json:"account_number,omitempty"`
 }
 
 type NPWPValidatorResponse struct {

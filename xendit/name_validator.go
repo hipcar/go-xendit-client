@@ -7,8 +7,8 @@ type NameValidator struct {
 }
 
 type NameValidatorRequest struct {
-	BankAccountNumber string `json:"bank_account_number"`
-	BankCode          string `json:"bank_code"`
+	BankAccountNumber string `json:"bank_account_number,omitempty"`
+	BankCode          string `json:"bank_code,omitempty"`
 }
 
 type NameValidatorResponse struct {

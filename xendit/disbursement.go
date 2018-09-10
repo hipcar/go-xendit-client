@@ -14,12 +14,12 @@ type GetAvailableDisbursementBankResponse struct {
 }
 
 type CreateDisbursementRequest struct {
-	ExternalId        string  `json:"external_id"`
-	BankCode          string  `json:"bank_code"`
-	AccountHolderName string  `json:"account_holder_name"`
-	AccountNumber     string  `json:"account_number"`
-	Description       string  `json:"description"`
-	Amount            float64 `json:"amount"`
+	ExternalId        string  `json:"external_id,omitempty"`
+	BankCode          string  `json:"bank_code,omitempty"`
+	AccountHolderName string  `json:"account_holder_name,omitempty"`
+	AccountNumber     string  `json:"account_number,omitempty"`
+	Description       string  `json:"description,omitempty"`
+	Amount            float64 `json:"amount,omitempty"`
 }
 
 type CreateDisbursementResponse struct {
@@ -45,16 +45,16 @@ type GetDisbursementResponse struct {
 }
 
 type DisbursementCallbackRequest struct {
-	IsInstant               bool    `json:"is_instant"`
-	UserId                  string  `json:"user_id"`
-	ExternalId              string  `json:"external_id"`
-	Amount                  float64 `json:"amount"`
-	BankCode                string  `json:"bank_code"`
-	AccountHolderName       string  `json:"account_holder_name"`
-	DisbursementDescription string  `json:"disbursement_description"`
-	Status                  string  `json:"status"`
-	FailureCode             string  `json:"failure_code"`
-	Id                      string  `json:"id"`
+	IsInstant               bool    `json:"is_instant,omitempty"`
+	UserId                  string  `json:"user_id,omitempty"`
+	ExternalId              string  `json:"external_id,omitempty"`
+	Amount                  float64 `json:"amount,omitempty"`
+	BankCode                string  `json:"bank_code,omitempty"`
+	AccountHolderName       string  `json:"account_holder_name,omitempty"`
+	DisbursementDescription string  `json:"disbursement_description,omitempty"`
+	Status                  string  `json:"status,omitempty"`
+	FailureCode             string  `json:"failure_code,omitempty"`
+	Id                      string  `json:"id,omitempty"`
 }
 
 func (c *Disbursement) GetAvailableDisbursementBank() ([]GetAvailableDisbursementBankResponse, error) {
