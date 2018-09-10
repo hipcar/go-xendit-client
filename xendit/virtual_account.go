@@ -27,18 +27,19 @@ type CreateFixedVirtualAccountRequest struct {
 }
 
 type CreateFixedVirtualAccountResponse struct {
-	OwnerId         string  `json:"owner_id"`
-	ExternalId      string  `json:"external_id"`
-	BankCode        string  `json:"bank_code"`
-	MerchantCode    string  `json:"merchant_code"`
-	Name            string  `json:"name"`
-	AccountNumber   string  `json:"account_number"`
-	SuggestedAmount float64 `json:"suggested_amount"`
-	IsClosed        bool    `json:"is_closed"`
-	ExpectedAmount  float64 `json:"expected_amount"`
-	Id              string  `json:"id"`
-	IsSingleUse     bool    `json:"is_single_use"`
-	Status          string  `json:"status"`
+	OwnerId         string    `json:"owner_id"`
+	ExternalId      string    `json:"external_id"`
+	BankCode        string    `json:"bank_code"`
+	MerchantCode    string    `json:"merchant_code"`
+	Name            string    `json:"name"`
+	AccountNumber   string    `json:"account_number"`
+	SuggestedAmount float64   `json:"suggested_amount"`
+	IsClosed        bool      `json:"is_closed"`
+	ExpectedAmount  float64   `json:"expected_amount"`
+	Id              string    `json:"id"`
+	IsSingleUse     bool      `json:"is_single_use"`
+	ExpirationDate  time.Time `json:"expiration_date"`
+	Status          string    `json:"status"`
 }
 
 type UpdateFixedVirtualAccountRequest struct {
