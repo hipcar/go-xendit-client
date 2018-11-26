@@ -80,6 +80,25 @@ type CaptureChargeResponse struct {
 	Descriptor            string    `json:"descriptor"`
 }
 
+type RefundRequest struct {
+	ExternalId         string `json:"external_id,omitempty"`
+	CreditCardChargeId string `json:"credit_card_charge_id,omitempty"`
+	Amount             string `json:"amount,omitempty"`
+}
+
+type RefundResponse struct {
+	Updated            time.Time `json:"updated"`
+	Created            time.Time `json:"created"`
+	CreditCardChargeId string    `json:"credit_card_charge_id"`
+	UserId             string    `json:"user_id"`
+	Amount             float64   `json:"amount"`
+	ExternalId         string    `json:"external_id"`
+	Status             string    `json:"status"`
+	FailureReason      string    `json:"failure_reason"`
+	FeeRefundAmount    float64   `json:"fee_refund_amount"`
+	Id                 string    `json:"id"`
+}
+
 // TODO
 func (c *CreditCard) CreateToken(tokenRequest TokenizationResponse) (TokenizationResponse, error) {
 	res := new(TokenizationResponse)
@@ -114,5 +133,20 @@ func (c *CreditCard) GetCharge(creditCardChargeId string) (ChargeResponse, error
 	endpoint := fmt.Sprintf("credit_card_charges/%s", creditCardChargeId)
 
 	err := c.client.Request("GET", endpoint, nil, res)
+	return *res, err
+}
+
+func (c *CreditCard) CreateRefund(creditCardChargeId string, amount float64) (RefundResponse, error) {
+	res := new(RefundResponse)
+
+	endpoint := fmt.Sprintf("credit_card_charges/%s/refunds", creditCardChargeId)
+
+	body := RefundRequest{
+		Amount:             fmt.Sprintf("%.0f", amount),
+		ExternalId:         fmt.Sprintf("REFUND-%s", creditCardChargeId),
+		CreditCardChargeId: creditCardChargeId,
+	}
+
+	err := c.client.Request("POST", endpoint, body, res)
 	return *res, err
 }
